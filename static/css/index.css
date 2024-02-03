@@ -316,9 +316,6 @@
   z-index: 100;
   max-width: 1000px;
   align-items: flex-start;
-  border-color: var(--dl-color-gray-black);
-  border-width: 1px;
-  border-radius: var(--dl-radius-radius-radius4);
   flex-direction: column;
   justify-content: center;
 }
