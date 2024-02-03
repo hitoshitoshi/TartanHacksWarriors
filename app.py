@@ -19,6 +19,27 @@ def teacher():
 def student():
     return render_template('student.html')
 
+@app.route('/teacher')
+def confirm():
+    gpt_name = request.form()
+
+    my_assistant = client.beta.assistants.create(
+        instructions= ,
+        description= ,
+        name= ,
+        tools=[{"type": "code_interpreter", "type": "retrieval", "type": "retrieval"}],
+        model="gpt-4-0125-preview",
+        file_ids=["file-abc123"],
+    )
+    assistant_file = client.beta.assistants.files.create(
+        assistant_id="asst_abc123",
+        file_id="file-abc123"
+    )
+
+
+
+
+
 @app.route('/generate', methods=['POST'])
 def generate_text():
     completion = client.chat.completions.create(
