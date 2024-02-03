@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAi</title>
+    <style>
+       body {
+           font-family: Arial, sans-serif;
+           margin: 0;
+           padding: 0;
+           background-color: #ff8b8b;
+       }
+
+        .container {
+            width: 80%;
+            display: flex;
+            margin-top: 20px;
+        }
+
+        .left-container, .chat-container {
+            flex: 1;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            margin: 0 10px;
+        }
+
+        .chat-container {
+           width: 80%;
+           margin: auto;
+           overflow: hidden;
+           border: 1px solid #ccc;
+           border-radius: 10px;
+           display: flex;
+           flex-direction: column;
+           height: 700px;
+           background-color: #ffffff
+          
+       }
+
+        .message {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .user-message,
+        .bot-message {
+            color: #fff;
+            border-radius: 10px;
+            padding: 10px;
+            max-width: 100%;
+        }
+        .user-message {
+           background-color: #ff8b8b;
+           color: #fff;
+           align-self: right;
+           right: 0;
+       }
+       .bot-message {
+           background-color: #fff;
+           color: #000;
+           align-self: flex-end;
+       }
+
+        .bot-message {
+            background-color: #ddd;
+            color: #333;
+            align-self: flex-start;
+        }
+
+        .messages {
+            flex: 1;
+            overflow-y: auto;
+            margin-bottom: 10px;
+        }
+
+        .input-container, .left-inputs {
+            background-color: #fff;
+            border-top: 1px  solid #ccc;
+            border-radius: 10px 10px 10px 10px;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            margin-top: 6px;
+        }
+
+        input[type="text"], .left-inputs input {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-right: 10px;
+            margin-left: 16px;
+        }
+
+        button {
+            padding: 8px 15px;
+            background-color: #ff8b8b;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="left-container">
+        <div class="left-inputs">
+            <text type="text" placeholder="">GPT Settings </text>
+        </div>
+        <div class="left-inputs">
+            <text type="text" placeholder="">GPT Name </text>
+            <input type="text" placeholder=""></input>
+        </div>
+        <div class="left-inputs">
+            <text type="text" placeholder="">GPT Description </text>
+            <input type="text" placeholder="Short Description about its functionality"></input>
+        </div>
+        <div class="left-inputs">
+            <text type="text" placeholder="">GPT Instructions </text>
+            <input type="text" placeholder="Give instructions about ways to respond and constraints for answers"></input>
+        </div>
+        <div class="left-inputs">
+            <text type="text" placeholder="">GPT Prompts </text>
+            <input type="text" placeholder="Give instructions about ways to respond and constraints for answers"></input>
+        </div>
+        <div class="left-inputs">
+            <button onclick="openSources()">Add Sources to cite</button>
+        </div>
+        <div class="left-inputs">
+            <button onclick="openSources()">Add Content for AI to learn</button>
+        </div>
+        <div class="left-inputs">
+            <button onclick="openSources()">Add Training data</button>
+        </div>
+        <div class="left-inputs">
+            <button onclick="confirm()">Update</button>
+        </div>
+    </div>
+
+    <div class="chat-container">
+        <div class="messages" id="chat-messages">
+            <!-- Messages will be added dynamically here -->
+        </div>
+
+        <div class="input-container">
+            <input type="text" id="user-input" placeholder="Type your message...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function sendMessage() {
+        var userMessage = document.getElementById('user-input').value;
+        if (userMessage.trim() === '') {
+            return;
+        }
+
+        // Add user message to the chat
+        var chatMessages = document.getElementById('chat-messages');
+        var userMessageElement = document.createElement('div');
+        userMessageElement.className = 'message user-message';
+        userMessageElement.innerHTML = userMessage;
+        chatMessages.appendChild(userMessageElement);
+
+        // Simulate a bot response (replace with actual GPT response)
+        var botResponse = "I'm a bot. This is a simulated response.";
+        var botMessageElement = document.createElement('div');
+        botMessageElement.className = 'message bot-message';
+        botMessageElement.innerHTML = botResponse;
+        chatMessages.appendChild(botMessageElement);
+
+        // Clear the user input field
+        document.getElementById('user-input').value = '';
+
+        // Scroll to the bottom of the chat
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+</script>
+</body>
+</html>
