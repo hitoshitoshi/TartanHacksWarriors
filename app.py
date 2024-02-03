@@ -10,6 +10,14 @@ openai.api_key = 'your_api_key_here'
 def home():
     return render_template('index.html')
 
+@app.route('/teacher')
+def teacher():
+    return render_template('teacher.html')
+
+@app.route('/student')
+def student():
+    return render_template('student.html')
+
 @app.route('/generate', methods=['POST'])
 def generate_text():
     prompt = request.form['prompt']
