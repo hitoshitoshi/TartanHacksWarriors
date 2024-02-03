@@ -2,13 +2,13 @@ from flask import Flask, request, render_template
 import openai
 
 app = Flask(__name__)
-
+app = Flask(__name__, static_url_path='/static')
 # Replace "your_api_key_here" with your actual OpenAI API key
 openai.api_key = 'your_api_key_here'
 
 @app.route('/')
 def home():
-    return render_template('student.html')
+    return render_template('index.html')
 
 @app.route('/generate', methods=['POST'])
 def generate_text():
@@ -22,7 +22,7 @@ def generate_text():
       frequency_penalty=0.0,
       presence_penalty=0.0
     )
-    return render_template('student.html', generated_text=response.choices[0].text.strip())
+    return render_template('index.html', generated_text=response.choices[0].text.strip())
 
 if __name__ == '__main__':
     app.run(debug=True)
