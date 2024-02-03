@@ -111,35 +111,36 @@
 
 <div class="container">
     <div class="left-container">
-        <div class="left-inputs">
-            <label for="gpt-settings">GPT Settings</label>
-            <input type="text" id="gpt-settings" name="gpt-settings" placeholder="">
-        </div>
-        <div class="left-inputs">
-            <label for="gpt-name">GPT Name</label>
-            <input type="text" id="gpt-name" name="gpt-name" placeholder="">
-        </div>
-        <div class="left-inputs">
-            <label for="gpt-description">GPT Description</label>
-            <input type="text" id="gpt-description" name="gpt-description" placeholder="Short Description about its functionality">
-        </div>
-        <div class="left-inputs">
-            <label for="gpt-instructions">GPT Instructions</label>
-            <input type="text" id="gpt-instructions" name="gpt-instructions" placeholder="Give instructions about ways to respond and constraints for answers">
-        </div>
-        <div class="left-inputs">
-            <label for="gpt-prompts">GPT Prompts</label>
-            <input type="text" id="gpt-prompts" name="gpt-prompts" placeholder="Give instructions about ways to respond and constraints for answers">
-        </div>
-        <div class="left-inputs">
-            <button onclick="openSources()">Add Sources to cite</button>
-        </div>
-        <div class="left-inputs">
-            <button onclick="openSources()">Add Content for AI to learn</button>
-        </div>
-        <div class="left-inputs">
-            <button onclick="confirm()">Update</button>
-        </div>
+        <form action="/settings" method="post">
+            <div class="left-inputs">
+                <label for="gpt-settings">GPT Settings</label>
+            </div>
+            <div class="left-inputs">
+                <label>GPT Name</label>
+                <input type="text" id="gpt_name" name="gpt_name" placeholder="">
+            </div>
+            <div class="left-inputs">
+                <label for="gpt_description">GPT Description</label>
+                <input type="text" id="gpt_description" name="gpt_description" placeholder="Short Description about its functionality">
+            </div>
+            <div class="left-inputs">
+                <label for="gpt_instructions">GPT Instructions</label>
+                <input type="text" id="gpt_instructions" name="gpt_instructions" placeholder="Give instructions about ways to respond and constraints for answers">
+            </div>
+            <div class="left-inputs">
+                <label for="gpt_prompts">GPT Prompts</label>
+                <input type="text" id="gpt_prompts" name="gpt_prompts" placeholder="Give instructions about ways to respond and constraints for answers">
+            </div>
+            <div class="left-inputs">
+                <button onclick="openSources()">Add Sources to cite</button>
+            </div>
+            <div class="left-inputs">
+                <button onclick="openSources()">Add Content for AI to learn</button>
+            </div>
+            <div class="left-inputs">
+                <input type="submit" name= "form" value="Submit"/>
+            </div>
+        </form>
     </div>
 
     <div class="chat-container">

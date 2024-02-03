@@ -19,14 +19,16 @@ def teacher():
 def student():
     return render_template('student.html')
 
-@app.route('/teacher')
-def confirm():
-    gpt_name = request.form()
+@app.route('/settings', methods =['POST'])
+def settings():
+    gpt_name = request.form['gpt_name']
+    gpt_description = request.form['gpt_description']
+    gpt_instructions = request.form['gpt_instructions']
 
     my_assistant = client.beta.assistants.create(
-        instructions= ,
-        description= ,
-        name= ,
+        instructions= gpt_instructions,
+        description= gpt_description,
+        name= gpt_name,
         tools=[{"type": "code_interpreter", "type": "retrieval", "type": "retrieval"}],
         model="gpt-4-0125-preview",
         file_ids=["file-abc123"],
