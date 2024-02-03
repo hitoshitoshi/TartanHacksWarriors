@@ -1,17 +1,146 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Custom LLM for Education</title>
-</head>
-<body>
-    <h2>Enter a prompt for the AI:</h2>
-    <form action="/generate" method="post">
-        <textarea name="prompt" rows="4" cols="50"></textarea>
-        <br>
-        <input type="submit" value="Generate">
-    </form>
-    <h3>Generated Text:</h3>
-    <p>{{ generated_text }}</p>
-</body>
-</html>
+<div>
+    <link href="./static/student.css" rel="stylesheet" />
+    <div class="student-container">
+      <div class="student-container1">
+        <div class="student-container2">
+          <meta charset="UTF-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+          <title>Chat with GPT</title>
+          <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #ff8b8b;
+            }
+  
+            .chat-container {
+                width: 80%;
+                margin: auto;
+                overflow: hidden;
+                border: 1px solid #ccc;
+                border-radius: 10px;
+                margin-top: 50px;
+                display: flex;
+                flex-direction: column;
+                height: 700px;
+                background-color: #ffffff
+  
+  
+            }
+  
+  
+  
+            .message {
+                margin-bottom: 10px;
+                font-size: 16px;
+            }
+  
+            .user-message {
+                background-color: #ff8b8b;
+                color: #fff;
+                align-self: flex-end;
+            }
+  
+            .user-message, .bot-message {
+  
+                border-radius: 10px;
+                padding: 10px;
+                max-width: 100%;
+            }
+            .bot-message {
+                background-color: #fff;
+                color: #000;
+                align-self: flex-end;
+            }
+  
+            .messages {
+                padding: 10px;
+                max-height: 700px;
+                overflow-y: auto;
+                width: 100%;
+            }
+  
+            .input-container {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 95%;
+                padding: 10px;
+                background-color: #fff;
+                border-top: 1px solid #ccc;
+                border-radius: 0 0 10px 10px;
+                display: flex;
+                align-items: center;
+                margin-top: 300px;
+  
+            }
+  
+            input[type='text'] {
+                flex: 1; /* Take up remaining space in the flex container */
+                padding: 12px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                font-size: 16px;
+            }
+  
+            button {
+                padding: 8px 15px;
+                background-color: #4caf50;
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 16px;
+                margin-left: 10px;
+            }
+          </style>
+  
+          <div class="chat-container">
+            <div class="messages" id="chat-messages">
+              <!-- Messages will be added dynamically here -->
+            </div>
+  
+            <div class="input-container">
+              <input
+                type="text"
+                id="user-input"
+                placeholder="Type your message..."
+              />
+              <button onclick="sendMessage()">Send</button>
+            </div>
+          </div>
+  
+          <script>
+            function sendMessage() {
+                var userMessage = document.getElementById('user-input').value;
+                if (userMessage.trim() === '') {
+                    return;
+                }
+  
+                // Add user message to the chat
+                var chatMessages = document.getElementById('chat-messages');
+                var userMessageElement = document.createElement('div');
+                userMessageElement.className = 'message user-message';
+                userMessageElement.innerHTML = userMessage;
+                chatMessages.appendChild(userMessageElement);
+  
+                // Simulate a bot response (replace with actual GPT response)
+                var botResponse = "I'm a bot. This is a simulated response.";
+                var botMessageElement = document.createElement('div');
+                botMessageElement.className = 'message bot-message';
+                botMessageElement.innerHTML = botResponse;
+                chatMessages.appendChild(botMessageElement);
+  
+                // Clear the user input field
+                document.getElementById('user-input').value = '';
+  
+                // Scroll to the bottom of the chat
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+          </script>
+        </div>
+      </div>
+    </div>
+  </div>
+  
