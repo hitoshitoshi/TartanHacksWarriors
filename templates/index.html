@@ -160,9 +160,11 @@
               <br />
             </h1>
             <div class="home-caption">
-              <button class="home-register2 button-style-1 button">
-                <span class="home-text11">Sign Up Now</span>
-              </button>
+              <a href="{{ url_for('teacher') }}">
+                <button class="home-register2 button-style-1 button">
+                  <span class="home-text11">Teacher Login</span>
+                </button>
+              </a>
               <p class="home-caption1"></p>
             </div>
           </div>
@@ -208,14 +210,16 @@
                 Step into the future of learning with ethical and
                 integrity-driven AI teaching tools
               </h2>
-              <button class="button button-style-2 home-register3">
-                <span>Register now</span>
-                <svg viewBox="0 0 1024 1024" class="home-icon12">
-                  <path
-                    d="M512 170l342 342-342 342-60-60 238-240h-520v-84h520l-238-240z"
-                  ></path>
-                </svg>
-              </button>
+              <a href="{{ url_for('student') }}">
+                <button class="button button-style-2 home-register3">
+                  <span>Student Login</span>
+                  <svg viewBox="0 0 1024 1024" class="home-icon12">
+                    <path
+                      d="M512 170l342 342-342 342-60-60 238-240h-520v-84h520l-238-240z"
+                    ></path>
+                  </svg>
+                </button>
+              </a>
             </div>
             <img
               alt="image"
