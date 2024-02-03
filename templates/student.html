@@ -100,15 +100,17 @@
             <div class="messages" id="chat-messages">
               <!-- Messages will be added dynamically here -->
             </div>
-  
-            <div class="input-container">
-              <input
-                type="text"
-                id="user-input"
-                placeholder="Type your message..."
-              />
-              <button onclick="sendMessage()">Send</button>
-            </div>
+            <form action="/generate" method="post">
+              <div class="input-container">
+                <input
+                  type="text"
+                  id="user_input"
+                  name="user_input"
+                  placeholder="Type your message..."
+                />
+                <button type="submit" name="form" value="Submit">Send</button>
+              </div>
+            </form>
           </div>
   
           <script>

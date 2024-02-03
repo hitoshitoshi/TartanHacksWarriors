@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TAi</title>
     <style>
-       body {
-           font-family: Arial, sans-serif;
-           margin: 0;
-           padding: 0;
-           background-color: #ff8b8b;
-       }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ff8b8b;
+        }
 
         .container {
             width: 80%;
@@ -18,7 +19,8 @@
             margin-top: 20px;
         }
 
-        .left-container, .chat-container {
+        .left-container,
+        .chat-container {
             flex: 1;
             padding: 20px;
             border: 1px solid #ccc;
@@ -27,17 +29,16 @@
         }
 
         .chat-container {
-           width: 80%;
-           margin: auto;
-           overflow: hidden;
-           border: 1px solid #ccc;
-           border-radius: 10px;
-           display: flex;
-           flex-direction: column;
-           height: 700px;
-           background-color: #ffffff
-          
-       }
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            height: 700px;
+            background-color: #ffffff
+        }
 
         .message {
             margin-bottom: 10px;
@@ -51,17 +52,19 @@
             padding: 10px;
             max-width: 100%;
         }
+
         .user-message {
-           background-color: #ff8b8b;
-           color: #fff;
-           align-self: right;
-           right: 0;
-       }
-       .bot-message {
-           background-color: #fff;
-           color: #000;
-           align-self: flex-end;
-       }
+            background-color: #ff8b8b;
+            color: #fff;
+            align-self: right;
+            right: 0;
+        }
+
+        .bot-message {
+            background-color: #fff;
+            color: #000;
+            align-self: flex-end;
+        }
 
         .bot-message {
             background-color: #ddd;
@@ -75,9 +78,10 @@
             margin-bottom: 10px;
         }
 
-        .input-container, .left-inputs {
+        .input-container,
+        .left-inputs {
             background-color: #fff;
-            border-top: 1px  solid #ccc;
+            border-top: 1px solid #ccc;
             border-radius: 10px 10px 10px 10px;
             display: flex;
             align-items: center;
@@ -85,7 +89,8 @@
             margin-top: 6px;
         }
 
-        input[type="text"], .left-inputs input {
+        input[type="text"],
+        .left-inputs input {
             flex: 1;
             padding: 12px;
             border: 1px solid #ccc;
@@ -109,79 +114,81 @@
 
 <body>
 
-<div class="container">
-    <div class="left-container">
-        <form action="/settings" method="post">
-            <div class="left-inputs">
-                <label for="gpt-settings">GPT Settings</label>
-            </div>
-            <div class="left-inputs">
-                <label>GPT Name</label>
-                <input type="text" id="gpt_name" name="gpt_name" placeholder="">
-            </div>
-            <div class="left-inputs">
-                <label for="gpt_description">GPT Description</label>
-                <input type="text" id="gpt_description" name="gpt_description" placeholder="Short Description about its functionality">
-            </div>
-            <div class="left-inputs">
-                <label for="gpt_instructions">GPT Instructions</label>
-                <input type="text" id="gpt_instructions" name="gpt_instructions" placeholder="Give instructions about ways to respond and constraints for answers">
-            </div>
-            <div class="left-inputs">
-                <label for="gpt_prompts">GPT Prompts</label>
-                <input type="text" id="gpt_prompts" name="gpt_prompts" placeholder="Give instructions about ways to respond and constraints for answers">
-            </div>
-            <div class="left-inputs">
-                <button onclick="openSources()">Add Sources to cite</button>
-            </div>
-            <div class="left-inputs">
-                <button onclick="openSources()">Add Content for AI to learn</button>
-            </div>
-            <div class="left-inputs">
-                <input type="submit" name= "form" value="Submit"/>
-            </div>
-        </form>
-    </div>
-
-    <div class="chat-container">
-        <div class="messages" id="chat-messages">
-            <!-- Messages will be added dynamically here -->
+    <div class="container">
+        <div class="left-container">
+            <form action="/settings" method="post">
+                <div class="left-inputs">
+                    <label for="gpt-settings">GPT Settings</label>
+                </div>
+                <div class="left-inputs">
+                    <label>GPT Name</label>
+                    <input type="text" id="gpt_name" name="gpt_name" placeholder="">
+                </div>
+                <div class="left-inputs">
+                    <label for="gpt_description">GPT Description</label>
+                    <input type="text" id="gpt_description" name="gpt_description"
+                        placeholder="Short Description about its functionality">
+                </div>
+                <div class="left-inputs">
+                    <label for="gpt_instructions">GPT Instructions</label>
+                    <input type="text" id="gpt_instructions" name="gpt_instructions"
+                        placeholder="Give instructions about ways to respond and constraints for answers">
+                </div>
+                <div class="left-inputs">
+                    <label for="gpt_prompts">GPT Prompts</label>
+                    <input type="text" id="gpt_prompts" name="gpt_prompts"
+                        placeholder="Give instructions about ways to respond and constraints for answers">
+                </div>
+                <div class="left-inputs">
+                    <label for="myfile">Add Files</label>
+                    <input type="file" id="myfile" name="myfile" multiple>
+                </div>
+                <div class="left-inputs">
+                    <input type="submit" name="form" value="Submit" />
+                </div>
+            </form>
         </div>
 
-        <div class="input-container">
-            <input type="text" id="user-input" placeholder="Type your message...">
-            <button onclick="sendMessage()">Send</button>
+        <div class="chat-container">
+            <div class="messages" id="chat-messages">
+                <!-- Messages will be added dynamically here -->
+            </div>
+
+            <div class="input-container">
+                <input type="text" id="user-input" placeholder="Type your message...">
+                <button onclick="sendMessage()">Send</button>
+            </div>
         </div>
     </div>
-</div>
 
-<script>
-    function sendMessage() {
-        var userMessage = document.getElementById('user-input').value;
-        if (userMessage.trim() === '') {
-            return;
+    <script>
+        function sendMessage() {
+            var userMessage = document.getElementById('user-input').value;
+            if (userMessage.trim() === '') {
+                return;
+            }
+
+            // Add user message to the chat
+            var chatMessages = document.getElementById('chat-messages');
+            var userMessageElement = document.createElement('div');
+            userMessageElement.className = 'message user-message';
+            userMessageElement.innerHTML = userMessage;
+            chatMessages.appendChild(userMessageElement);
+
+            // Simulate a bot response (replace with actual GPT response)
+            var botResponse = "I'm a bot. This is a simulated response.";
+            var botMessageElement = document.createElement('div');
+            botMessageElement.className = 'message bot-message';
+            botMessageElement.innerHTML = botResponse;
+            chatMessages.appendChild(botMessageElement);
+
+            // Clear the user input field
+            document.getElementById('user-input').value = '';
+
+            // Scroll to the bottom of the chat
+            chatMessages.scrollTop = chatMessages.scrollHeight;
         }
-
-        // Add user message to the chat
-        var chatMessages = document.getElementById('chat-messages');
-        var userMessageElement = document.createElement('div');
-        userMessageElement.className = 'message user-message';
-        userMessageElement.innerHTML = userMessage;
-        chatMessages.appendChild(userMessageElement);
-
-        // Simulate a bot response (replace with actual GPT response)
-        var botResponse = "I'm a bot. This is a simulated response.";
-        var botMessageElement = document.createElement('div');
-        botMessageElement.className = 'message bot-message';
-        botMessageElement.innerHTML = botResponse;
-        chatMessages.appendChild(botMessageElement);
-
-        // Clear the user input field
-        document.getElementById('user-input').value = '';
-
-        // Scroll to the bottom of the chat
-        chatMessages.scrollTop = chatMessages.scrollHeight;
-    }
-</script>
+    </script>
 </body>
+
 </html>
